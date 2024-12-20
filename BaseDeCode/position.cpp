@@ -2,6 +2,10 @@
 //  position.cpp
 //
 
+#include <iostream>
+
+using namespace std;
+
 // description : fonction utilitaire qui permet de lire et valider si c'est bien un entier qui est lu
 // param[ES] : flux d'entree sur lequel on lit l'entier
 // param[S] : entier lu
