@@ -36,13 +36,17 @@ int main()
     // Ouvrir le fichier
     ifstream fichierCarte(nomFichierCarte);
 
-    // Rediriger cin vers le fichier de test
+    // Rediriger cin vers le fichier de test après avoir lu le nom du fichier carte
     ifstream fichierTest("test1");
     if (fichierTest.is_open()) {
         cin.rdbuf(fichierTest.rdbuf());
+        cout << "Utilisation du fichier de test pour les entrées." << endl;
     } else {
         cout << "Fichier de test non trouvé. Utilisation de l'entrée standard." << endl;
     }
+
+    // Vider le tampon d'entrée
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     
     // Tant que le nom du fichier est different de "quitter" et que le fichier demande n'a pas pu etre ouvert
     while (nomFichierCarte != "quitter" && !fichierCarte.is_open())
