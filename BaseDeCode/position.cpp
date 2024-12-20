@@ -28,6 +28,9 @@ void lireValiderEntier(istream& es_entree, int &s_entier)
         es_entree.ignore(numeric_limits<streamsize>::max(), '\n');
     }
     
+    // Debug output
+    cout << "Debug - es_entree: " << es_entree.rdbuf() << ", s_entier: " << s_entier << endl;
+    
     assert(es_entree);
 }
 
