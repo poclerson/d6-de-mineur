@@ -18,13 +18,27 @@
 
 Compteur Carte::getNbMinesAdjacentes(Position e_pos)
 {
-    // a completer
-    // a completer
-    // a completer
-    // a completer
-    // a completer
+    Compteur nbMines = 0;
     
-    return 0;
+    // Check all 8 adjacent positions
+    for (int i = -1; i <= 1; ++i) {
+        for (int j = -1; j <= 1; ++j) {
+            // Skip the center position (the position itself)
+            if (i == 0 && j == 0) continue;
+            
+            Position adjacentPos(e_pos.ligne() + i, e_pos.colonne() + j);
+            
+            // Check if the adjacent position is within the board
+            if (estDansCarte(adjacentPos)) {
+                // If the adjacent position contains a mine, increment the counter
+                if (getCase(adjacentPos).estUneMine()) {
+                    ++nbMines;
+                }
+            }
+        }
+    }
+    
+    return nbMines;
 }
 
 // Description: Methode qui essaie d'ouvrir une case
