@@ -39,13 +39,13 @@ int main()
 
     // Lire le nom du fichier contenant la carte de jeu
 //    nomFichierCarte = "carte1";
-    cout << "Entrez le nom du fichier contenant la carte : ";
-    cin >> nomFichierCarte;
+    // cout << "Entrez le nom du fichier contenant la carte : ";
+    // cin >> nomFichierCarte;
     
-    cout << endl;
+    // cout << endl;
 
     // Ouvrir le fichier
-    ifstream fichierCarte(nomFichierCarte);
+    ifstream fichierCarte("carte1");
     
     // Tant que le nom du fichier est different de "quitter" et que le fichier demande n'a pas pu etre ouvert
     while (nomFichierCarte != "quitter" && !fichierCarte.is_open())

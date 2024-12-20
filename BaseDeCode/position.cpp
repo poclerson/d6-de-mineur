@@ -16,12 +16,13 @@ using namespace std;
 
 void lireValiderEntier(istream& es_entree, int &s_entier)
 {
+    cout << "@@@@" << es_entree.rdbuf() << "@@@@" << s_entier << endl;
     assert(es_entree);
     
     while (!(es_entree >> s_entier))
     {
         // Afficher un message d'erreur et redemander le numero de ligne
-        cout << "Erreur! Vous devez entrer une nombre entier! " << endl << "Entrez la ligne : ";
+        cout << "Erreur! Vous devez entrer une nombre entier! " << endl << "es_entree: " << es_entree.rdbuf() << endl << "s_entier: " << s_entier << endl << "Entrez la ligne : ";
         // Vider le tampon de lecture
         es_entree.clear();
         // Ignorer tous les caracteres deja entres
