@@ -52,6 +52,13 @@ int main()
         if (fichierTest.is_open()) {
             cin.rdbuf(fichierTest.rdbuf());
             cout << "Utilisation du fichier de test pour les entrées." << endl;
+            cout << "Contenu du fichier de test:" << endl;
+            string line;
+            while (getline(fichierTest, line)) {
+                cout << line << endl;
+            }
+            fichierTest.clear();
+            fichierTest.seekg(0, ios::beg);
         } else {
             cout << "Erreur: Fichier de test non trouvé. Utilisation de l'entrée standard." << endl;
         }
@@ -59,8 +66,13 @@ int main()
         cout << "Utilisation de l'entrée standard." << endl;
     }
 
-    // Vider le tampon d'entrée
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    // Ne pas vider le tampon d'entrée ici
+    // cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    cout << "Début du jeu. Première ligne à lire:" << endl;
+    string firstLine;
+    getline(cin, firstLine);
+    cout << "Première ligne lue: " << firstLine << endl;
     
     // Jouer le jeu
     jouer(fichierCarte);

@@ -20,8 +20,12 @@ void lireValiderEntier(istream& es_entree, int &s_entier)
     
     while (!(es_entree >> s_entier))
     {
-        // Afficher un message d'erreur et redemander le numero de ligne
-        cout << "Erreur! Vous devez entrer un nombre entier! " << endl << "Entrez la ligne : ";
+        // Afficher un message d'erreur avec les valeurs de débogage
+        cout << "Erreur! Vous devez entrer un nombre entier! " << endl;
+        cout << "Valeur dans es_entree: " << es_entree.rdbuf() << endl;
+        cout << "Valeur actuelle de s_entier: " << s_entier << endl;
+        cout << "Entrez la ligne : ";
+        
         // Vider le tampon de lecture
         es_entree.clear();
         // Ignorer tous les caracteres deja entres
