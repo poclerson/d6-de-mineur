@@ -28,14 +28,9 @@ int main()
     // Declaration des variables locales
     string nomFichierCarte;
     
-    ifstream fichierTest;   // flux d'entree de type fichier
-
-    fichierTest.open("test1");  // ouvre le fichier
-    cin.rdbuf(fichierTest.rdbuf());
-
     // Lire le nom du fichier contenant la carte de jeu
-    nomFichierCarte = "carte1";
-    cout << "Utilisation du fichier carte par défaut : " << nomFichierCarte << endl;
+    cout << "Entrez le nom du fichier contenant la carte : ";
+    cin >> nomFichierCarte;
     cout << endl;
 
     // Ouvrir le fichier
