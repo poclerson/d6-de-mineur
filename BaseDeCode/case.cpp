@@ -54,10 +54,15 @@ void Case::metUneMine()
 // description : accesseur du nombre de mines adjacentes
 // retour : Compteur - nombre de mines adjacentes
 
-Compteur Case::nbMinesAdj()
+Compteur Case::nbMinesAdj() const
 {
     return m_nbMinesAdj;
-};
+}
+
+void Case::setNbMinesAdj(Compteur nbMines)
+{
+    m_nbMinesAdj = nbMines;
+}
 
 // description : verifie si la case a deja ete ouverte
 // retour : booleen

@@ -66,7 +66,7 @@ bool Carte::essaieCase(Position e_pos)
         return false;
     }
 
-    if (getCase(e_pos).nbMinesAdj() == 0) {
+    if (getNbMinesAdjacentes(e_pos) == 0) {
         for (int i = -1; i <= 1; ++i) {
             for (int j = -1; j <= 1; ++j) {
                 if (i == 0 && j == 0) continue;
@@ -79,6 +79,36 @@ bool Carte::essaieCase(Position e_pos)
     }
 
     return true;
+}
+
+void Carte::ouvreCase(Position e_pos)
+{
+    if (estDansCarte(e_pos)) {
+        m_cases[e_pos.ligne()][e_pos.colonne()].ouvre();
+        Compteur nbMines = getNbMinesAdjacentes(e_pos);
+        m_cases[e_pos.ligne()][e_pos.colonne()].setNbMinesAdj(nbMines);
+    }
+}
+
+Compteur Carte::getNbMinesAdjacentes(Position e_pos)
+{
+    Compteur nbMines = 0;
+    
+    for (int i = -1; i <= 1; ++i) {
+        for (int j = -1; j <= 1; ++j) {
+            if (i == 0 && j == 0) continue;
+            
+            Position adjacentPos(e_pos.ligne() + i, e_pos.colonne() + j);
+            
+            if (estDansCarte(adjacentPos)) {
+                if (getCase(adjacentPos).estUneMine()) {
+                    ++nbMines;
+                }
+            }
+        }
+    }
+    
+    return nbMines;
 }
 
 // Description: Methode qui calcule le nombre de mines adjacentes pour les cases libres de la carte

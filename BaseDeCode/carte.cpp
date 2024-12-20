@@ -257,11 +257,12 @@ void afficheCases(int e_noLigne, const Carte &e_carte, std::ostream &es_sortie)
     // Pour toutes les colonnes de la ligne
     for (int noColonne = 0; noColonne < e_carte.nbColonnes(); ++noColonne)
     {
+        Position pos{e_noLigne, noColonne};
         // Si la case est ouverte
-        if (e_carte.caseEstOuverte(Position {e_noLigne, noColonne}))
+        if (e_carte.caseEstOuverte(pos))
         {
             // Si la case est une mine, afficher le symbole de la mine
-            if (e_carte.getCase(Position {e_noLigne, noColonne}).estUneMine())
+            if (e_carte.getCase(pos).estUneMine())
             {
                 es_sortie << setw(3);
                 es_sortie << CMINE;
@@ -269,7 +270,7 @@ void afficheCases(int e_noLigne, const Carte &e_carte, std::ostream &es_sortie)
             else
             {
                 // on recupere le nombre de mines adjacentes
-                Compteur nbMines = e_carte.getCase(Position {e_noLigne, noColonne}).nbMinesAdj();
+                Compteur nbMines = e_carte.getCase(pos).nbMinesAdj();
 
                 // si il y a des mines autour on affiche le nb de mines adjacentes
                 if (nbMines != 0)

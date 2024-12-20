@@ -51,7 +51,8 @@ public:
     // description : accesseur du nombre de mines adjacentes
     // retour : Compteur - nombre de mines adjacentes
 
-    Compteur nbMinesAdj();
+    Compteur nbMinesAdj() const;
+    void setNbMinesAdj(Compteur nbMines);
     
     // description : verifie si la case a deja ete ouverte
     // retour : booleen
