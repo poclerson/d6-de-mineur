@@ -63,7 +63,9 @@ bool Carte::essaieCase(Position e_pos)
             for (int j = -1; j <= 1; ++j) {
                 if (i == 0 && j == 0) continue;
                 Position adjacentPos(e_pos.ligne() + i, e_pos.colonne() + j);
-                essaieCase(adjacentPos);
+                if (estDansCarte(adjacentPos) && !caseEstOuverte(adjacentPos)) {
+                    essaieCase(adjacentPos);
+                }
             }
         }
     }

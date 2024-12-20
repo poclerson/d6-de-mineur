@@ -103,25 +103,25 @@ bool jouerUnTour(Carte &es_carte)
     // Effacer tout l'ecran
     Console::clearScreen();
     
-    bool codeRetour {true};
-    
     // Essaie la case demandee si on trouve une mine
     if (!es_carte.essaieCase(position))
     {
         // Affiche un message d'erreur et indique de quitter le jeu
         cout << "Vous avez touche une mine!!!" << endl;
-        codeRetour = false;
+        cout<<endl<< es_carte;
+        return false;
     }
     // Sinon, verifier si on vient de terminer la partie
     else if (es_carte.partieEstTerminee())
     {
         // Affiche un message de felicitation et indique de quitter le jeu
         cout << "Vous avez gagne!" << endl;
-        codeRetour = false;
+        cout<<endl<< es_carte;
+        return false;
     }
     
     // Affiche la carte
     cout<<endl<< es_carte;
     
-    return codeRetour;
+    return true;
 }
