@@ -30,9 +30,8 @@ int main()
     
     ifstream fichierTest;   // flux d'entree de type fichier
 
-    // Comment out the redirection to allow input from the terminal
-    // fichierTest.open("test1");  // ouvre le fichier
-    // cin.rdbuf(fichierTest.rdbuf());
+    fichierTest.open("test1");  // ouvre le fichier
+    cin.rdbuf(fichierTest.rdbuf());
 
     // Lire le nom du fichier contenant la carte de jeu
     nomFichierCarte = "carte1";
