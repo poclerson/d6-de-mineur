@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cassert>
+#include "position.h"
 
 using namespace std;
 
@@ -28,4 +29,18 @@ void lireValiderEntier(istream& es_entree, int &s_entier)
     }
     
     assert(es_entree);
+}
+
+Position::Position(int ligne, int colonne)
+{
+}
+
+int Position::ligne() const
+{
+  return 0;
+}
+
+int Position::colonne() const
+{
+  return 0;
 }
