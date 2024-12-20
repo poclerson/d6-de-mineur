@@ -1,0 +1,24 @@
+Feuille de calcul d'effort
+-----------------------------
+Étudiant(s) :
+ 1)
+ 2)
+_______________________________________________________________________________
+Tous les efforts doivent être notés en heures par personne.
+Par exemple un effort de 1.5 indique un effort d'une heure et 30 minutes.
+  → effort prévu est celui que vous pensez accorder au travail.
+  → effort utilisé est celui effectivement consacré à la réalisation du travail.
+________________________________________________________________________________
+
+* Effort prévu 
+Analyse (s'il y a lieu)    :
+Conception (s'il y a lieu) :  
+Programmation              :
+_____________________________________
+	          Total    :
+        
+* Effort utilisé (Total)   : 
+
+Différence                 : 
+
+- Justification des écarts :
