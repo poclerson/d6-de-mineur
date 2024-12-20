@@ -55,6 +55,14 @@ bool Carte::essaieCase(Position e_pos)
     ouvreCase(e_pos);
 
     if (getCase(e_pos).estUneMine()) {
+        // Reveal all mines when a mine is hit
+        for (int i = 0; i < nbLignes(); ++i) {
+            for (int j = 0; j < nbColonnes(); ++j) {
+                if (getCase(Position(i, j)).estUneMine()) {
+                    ouvreCase(Position(i, j));
+                }
+            }
+        }
         return false;
     }
 
