@@ -102,19 +102,6 @@ bool Carte::caseEstOuverte(Position e_pos) const
     return false;
 }
 
-// Description: Methode qui ouvre une case de la carte
-// param[E] : Position de la case
-// post : si la case est dans la grille, on assigne une valeur vrai a la grille de cases ouvertes, sinon, on ne fait rien
-
-void Carte::ouvreCase(Position e_pos)
-{
-    // Si la case est dans la grille
-    if (estDansCarte(e_pos))
-    {
-        // Indique que la case est ouverte
-        m_cases[e_pos.ligne()][e_pos.colonne()].ouvre();
-    }
-}
 
 // Description: Methode qui retourne le nombre de lignes de la carte
 // retour : entier

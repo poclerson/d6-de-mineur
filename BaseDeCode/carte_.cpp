@@ -95,9 +95,13 @@ void Carte::ouvreCase(Position e_pos)
 
 void Carte::compteMinesAdjParCase()
 { 
-    // a completer
-    // a completer
-    // a completer
-    // a completer
-    // a completer
+    for (int i = 0; i < nbLignes(); ++i) {
+        for (int j = 0; j < nbColonnes(); ++j) {
+            Position pos(i, j);
+            if (!getCase(pos).estUneMine()) {
+                Compteur nbMines = getNbMinesAdjacentes(pos);
+                m_cases[i][j].setNbMinesAdj(nbMines);
+            }
+        }
+    }
 }
