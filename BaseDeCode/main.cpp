@@ -10,6 +10,8 @@
 
 #include "carte.h"
 #include "utilitaires.h"
+#include "position.cpp"
+#include "position.h"
 
 #include <fstream>
 #include <iostream>
