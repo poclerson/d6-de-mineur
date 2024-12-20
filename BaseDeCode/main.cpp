@@ -107,7 +107,7 @@ bool jouerUnTour(Carte &es_carte)
     if (!es_carte.essaieCase(position))
     {
         // Affiche un message d'erreur et indique de quitter le jeu
-        cout << "Vous avez touche une mine!!!" << endl;
+        cout << "Vous avez touche une mine a la position " << position << "!!!" << endl;
         cout<<endl<< es_carte;
         return false;
     }
@@ -118,6 +118,16 @@ bool jouerUnTour(Carte &es_carte)
         cout << "Vous avez gagne!" << endl;
         cout<<endl<< es_carte;
         return false;
+    }
+    else
+    {
+        // Affiche un message de confirmation pour la case ouverte
+        cout << "Case " << position << " ouverte avec succes." << endl;
+        if (es_carte.getCase(position).nbMinesAdj() > 0) {
+            cout << "Il y a " << (int)es_carte.getCase(position).nbMinesAdj() << " mine(s) adjacente(s)." << endl;
+        } else {
+            cout << "Aucune mine adjacente." << endl;
+        }
     }
     
     // Affiche la carte
