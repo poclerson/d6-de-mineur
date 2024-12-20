@@ -26,43 +26,44 @@ int main()
     void jouer(ifstream &);
     
     // Declaration des variables locales
-    string nomFichierCarte;
+    string nomFichierCarte, nomFichierTest;
     
     // Lire le nom du fichier contenant la carte de jeu
     cout << "Entrez le nom du fichier contenant la carte : ";
     cin >> nomFichierCarte;
     cout << endl;
 
-    // Ouvrir le fichier
-    ifstream fichierCarte(nomFichierCarte);
+    // Lire le nom du fichier de test
+    cout << "Entrez le nom du fichier de test (ou 'non' pour utiliser l'entrée standard) : ";
+    cin >> nomFichierTest;
+    cout << endl;
 
-    // Rediriger cin vers le fichier de test après avoir lu le nom du fichier carte
-    ifstream fichierTest("test1");
-    if (fichierTest.is_open()) {
-        cin.rdbuf(fichierTest.rdbuf());
-        cout << "Utilisation du fichier de test pour les entrées." << endl;
+    // Ouvrir le fichier de la carte
+    ifstream fichierCarte(nomFichierCarte);
+    if (!fichierCarte.is_open()) {
+        cout << "Erreur: Impossible d'ouvrir le fichier de la carte." << endl;
+        return 1;
+    }
+
+    // Rediriger cin vers le fichier de test si spécifié
+    ifstream fichierTest;
+    if (nomFichierTest != "non") {
+        fichierTest.open(nomFichierTest);
+        if (fichierTest.is_open()) {
+            cin.rdbuf(fichierTest.rdbuf());
+            cout << "Utilisation du fichier de test pour les entrées." << endl;
+        } else {
+            cout << "Erreur: Fichier de test non trouvé. Utilisation de l'entrée standard." << endl;
+        }
     } else {
-        cout << "Fichier de test non trouvé. Utilisation de l'entrée standard." << endl;
+        cout << "Utilisation de l'entrée standard." << endl;
     }
 
     // Vider le tampon d'entrée
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     
-    // Tant que le nom du fichier est different de "quitter" et que le fichier demande n'a pas pu etre ouvert
-    while (nomFichierCarte != "quitter" && !fichierCarte.is_open())
-    {
-        cout << "Fichier introuvable!" << endl << "Entrez le nom du fichier contenant la carte : ";
-        cin >> nomFichierCarte;
-
-        // Tenter d'ouvrir a nouveau le fichier
-        fichierCarte.open(nomFichierCarte);
-    }
-
-    // Si le fichier a bien ete ouvert
-    if (fichierCarte.is_open())
-    {
-        jouer(fichierCarte);
-    }
+    // Jouer le jeu
+    jouer(fichierCarte);
 
     return 0;
 }
