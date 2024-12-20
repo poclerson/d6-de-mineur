@@ -30,22 +30,17 @@ int main()
     
     ifstream fichierTest;   // flux d'entree de type fichier
 
-    // workaround pour avoir une entree redirigee dans le fichier de test
-    fichierTest.open("test1");  // ouvre le fichier
-        
-    // redirige le flux standard vers le fichier, le cin pourra etre utilise normalement
-    // ****** a mettre en commentaires cette ligne pour remettre le fonctionnement a normal
-    cin.rdbuf(fichierTest.rdbuf());
+    // Comment out the redirection to allow input from the terminal
+    // fichierTest.open("test1");  // ouvre le fichier
+    // cin.rdbuf(fichierTest.rdbuf());
 
     // Lire le nom du fichier contenant la carte de jeu
-//    nomFichierCarte = "carte1";
-    // cout << "Entrez le nom du fichier contenant la carte : ";
-    // cin >> nomFichierCarte;
-    
-    // cout << endl;
+    nomFichierCarte = "carte1";
+    cout << "Utilisation du fichier carte par défaut : " << nomFichierCarte << endl;
+    cout << endl;
 
     // Ouvrir le fichier
-    ifstream fichierCarte("carte1");
+    ifstream fichierCarte(nomFichierCarte);
     
     // Tant que le nom du fichier est different de "quitter" et que le fichier demande n'a pas pu etre ouvert
     while (nomFichierCarte != "quitter" && !fichierCarte.is_open())
