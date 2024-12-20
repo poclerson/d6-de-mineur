@@ -32,15 +32,31 @@ void lireValiderEntier(istream& es_entree, int &s_entier)
 }
 
 Position::Position(int ligne, int colonne)
+    : m_ligne(ligne), m_colonne(colonne)
 {
 }
 
 int Position::ligne() const
 {
-  return 0;
+    return m_ligne;
 }
 
 int Position::colonne() const
 {
-  return 0;
+    return m_colonne;
+}
+
+std::istream& operator>>(std::istream& is, Position& pos)
+{
+    int ligne, colonne;
+    lireValiderEntier(is, ligne);
+    lireValiderEntier(is, colonne);
+    pos = Position(ligne, colonne);
+    return is;
+}
+
+std::ostream& operator<<(std::ostream& os, const Position& pos)
+{
+    os << "(" << pos.ligne() << "," << pos.colonne() << ")";
+    return os;
 }

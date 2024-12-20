@@ -9,7 +9,11 @@
         "-std=c++17",
         "-o",
         "minesweeper",
-        "BaseDeCode/main.cpp" // Replace with your source files
+        "BaseDeCode/main.cpp",
+        "BaseDeCode/carte.cpp",
+        "BaseDeCode/carte_.cpp",
+        "BaseDeCode/case.cpp",
+        "BaseDeCode/position.cpp"
       ],
       "group": {
         "kind": "build",
